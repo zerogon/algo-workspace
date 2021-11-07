@@ -18,7 +18,7 @@ public class Song004 {
 				}
 			}
 		}
-		
+		//test
 	}
 	public static boolean checkValue(int num) {
 	    int cnt = 0;
