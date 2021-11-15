@@ -1,6 +1,7 @@
 package level01;
 
 import java.util.Stack;
+import java.util.function.BiFunction;
 
 public class Jang07 {
 	/*
@@ -23,6 +24,17 @@ public class Jang07 {
 		int i = 0;
 		// 점 보 (옵) 점 보 (옵) 점 보 (옵)
 		Stack<Integer> scoreList = new Stack<Integer>();
+		
+		BiFunction<Integer, Character, Integer> calPro = (score, bonus) ->{
+			if('S'==bonus) {
+				return score;
+			}else if('D'==bonus) {
+				return score * score;
+			}else {
+				return score * score * score;
+			}
+		};
+		
 		while(scoreList.size() < 4 && i != dartResult.length()) {
 			char score = dartResult.charAt(i);
 			if(Character.isDigit(score)) {
@@ -35,7 +47,7 @@ public class Jang07 {
 				}else {
 					i+=2;
 				}
-				int calScore = calScorePro(intScore, bonus);
+				int calScore = calPro.apply(intScore, bonus );
 				scoreList.push(calScore);
 			}else { // 옵션인 경우 * : 이전과 현재 2배, #: -1
 				if('*' == score) {
