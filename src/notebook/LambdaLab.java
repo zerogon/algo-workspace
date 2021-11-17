@@ -16,7 +16,7 @@ public class LambdaLab {
 // ------------------------------------------ wrapper
 		
 		Consumer<String> printString = System.out::println;
-		Function<String,Integer> func = Integer::parseInt;
+		Function<String,Integer> func = Integer::parseInt;  // 하나의 메소드만 호출하는경우, 메소드 참조 가능
 		Predicate<String> predic = s -> s.length() == 0;
 		
 		System.out.println(predic.test(""));
@@ -45,7 +45,9 @@ public class LambdaLab {
 		System.out.println("---");
 		list.removeIf(i->i%2==0);
 		list.forEach(i->System.out.print(i+","));
-		
+		list.replaceAll(x->x*10);
+		System.out.println("---");
+		list.forEach(System.out::println);
 		
 		
 	}
