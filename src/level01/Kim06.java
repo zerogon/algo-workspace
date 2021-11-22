@@ -23,7 +23,7 @@ public class Kim06 {
 				st.add(numbers[i]+numbers[j]);
 			}
 		}
-
+		
 		int[] answer = st.stream().mapToInt(Integer::intValue).toArray();
 	}
 	class Solution {
